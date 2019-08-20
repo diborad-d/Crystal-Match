@@ -10,16 +10,16 @@ let myNumber = 0;
 let luckyNumber = 0;
 
 window.onload = function() {
-  setup();
-  crystalOne = getCrystalOne();
-  crystalTwo = getCrystalTwo();
-  crystalThree = getCrystalThree();
-  crystalFour = getCrystalFour();
-   
+  crystalOne = getCrystalValue();
+  crystalTwo = getCrystalValue();
+  crystalThree = getCrystalValue();
+  crystalFour = getCrystalValue();
+  luckyNumber = getLuckyNumber();
   myNumber = 0;
+  setup();
 };
 function setup() {
-  $("#luckyNumber").text(getLuckyNumber());
+  $("#luckyNumber").text(luckyNumber);
   $(".crystalOne").click(function() {
     myNumber += crystalOne;
     $("#myNumber").text(myNumber);
@@ -43,16 +43,16 @@ function getRandomNumberBeetween(min, max) {
 function getLuckyNumber() {
   return getRandomNumberBeetween(19, 120);
 }
-function getCrystalOne() {
-  return getRandomNumberBeetween(1, 12);
-}
-function getCrystalTwo() {
-  return getRandomNumberBeetween(1, 12);
-}
-function getCrystalThree() {
-  return getRandomNumberBeetween(1, 12);
-}
-function getCrystalFour() {
+function getCrystalValue() {
   return getRandomNumberBeetween(1, 12);
 }
 
+// function didLose() {
+//     return myNumber > luckyNumber;
+// }
+
+function handleLoss() {
+  if (myNumber > luckyNumber) {
+    alert("you did it!!!");
+  }if else (myNumber = luckyNumber)
+}
