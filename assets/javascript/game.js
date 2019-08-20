@@ -7,6 +7,7 @@ let crystalTwo = 0;
 let crystalThree = 0;
 let crystalFour = 0;
 let myNumber = 0;
+let luckyNumber = 0;
 
 window.onload = function() {
   setup();
@@ -14,7 +15,7 @@ window.onload = function() {
   crystalTwo = getCrystalTwo();
   crystalThree = getCrystalThree();
   crystalFour = getCrystalFour();
-
+   
   myNumber = 0;
 };
 function setup() {
@@ -54,3 +55,4 @@ function getCrystalThree() {
 function getCrystalFour() {
   return getRandomNumberBeetween(1, 12);
 }
+
