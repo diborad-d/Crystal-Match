@@ -65,7 +65,7 @@ function handleLoss() {
   }
 }
 function handleWin() {
-  if (myNumber == luckyNumber) {
+  if (myNumber === luckyNumber) {
     wins++;
     alert("Yay! you matched the winning number!");
     $("#startOver").prop("disabled", false);
