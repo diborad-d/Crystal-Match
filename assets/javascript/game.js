@@ -22,19 +22,27 @@ function setup() {
   $("#luckyNumber").text(luckyNumber);
   $(".crystalOne").click(function() {
     myNumber += crystalOne;
-    $("#myNumber").text(myNumber);
+    $("#myNumber").text(myNumber).done()
+    handleLoss();
+    handleWin();
   });
   $(".crystalTwo").click(function() {
     myNumber += crystalTwo;
     $("#myNumber").text(myNumber);
+    handleLoss();
+    handleWin();
   });
   $(".crystalThree").click(function() {
     myNumber += crystalThree;
     $("#myNumber").text(myNumber);
+    handleLoss();
+    handleWin();
   });
   $(".crystalFour").click(function() {
     myNumber += crystalFour;
     $("#myNumber").text(myNumber);
+    handleLoss();
+    handleWin();
   });
 }
 function getRandomNumberBeetween(min, max) {
@@ -53,6 +61,12 @@ function getCrystalValue() {
 
 function handleLoss() {
   if (myNumber > luckyNumber) {
-    alert("you did it!!!");
-  }if else (myNumber = luckyNumber)
+    alert("Game Over!!!");
+  }
+}   
+function handleWin() {
+  if (myNumber == luckyNumber) {
+    alert("Yay! you matched the winning number");
+  }
 }
+      
