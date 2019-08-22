@@ -41,7 +41,6 @@ function setup() {
   $("#myNumber").text(myNumber);
   $("#startOver").prop("disabled", true);
 }
-
 function onCrystalClicked(crystalValue) {
   myNumber += crystalValue;
   $("#myNumber").text(myNumber);
@@ -61,6 +60,7 @@ function handleLoss() {
   if (myNumber > luckyNumber) {
     losses++;
     alert("You lost! Better luck next time!");
+    $("#losses").text("Losses: " + losses);
     $("#startOver").prop("disabled", false);
   }
 }
@@ -68,6 +68,7 @@ function handleWin() {
   if (myNumber === luckyNumber) {
     wins++;
     alert("Yay! you matched the winning number!");
+    $("#wins").text("Wins: " + wins);
     $("#startOver").prop("disabled", false);
   }
 }
