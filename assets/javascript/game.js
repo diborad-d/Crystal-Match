@@ -10,40 +10,43 @@ let myNumber = 0;
 let luckyNumber = 0;
 
 window.onload = function() {
+  setup();
+  $("#luckyNumber").text(luckyNumber);
+  $(".crystalOne").click(function() {
+    onCrystalClicked(crystalOne);
+  });
+  $(".crystalTwo").click(function() {
+    onCrystalClicked(crystalTwo);
+  });
+  $(".crystalThree").click(function() {
+    onCrystalClicked(crystalThree);
+  });
+  $(".crystalFour").click(function() {
+    onCrystalClicked(crystalFour);
+  });
+  $("#startOver").click(function() {
+    setup();
+  });
+};
+function setup() {
   crystalOne = getCrystalValue();
   crystalTwo = getCrystalValue();
   crystalThree = getCrystalValue();
   crystalFour = getCrystalValue();
   luckyNumber = getLuckyNumber();
   myNumber = 0;
-  setup();
-};
-function setup() {
   $("#luckyNumber").text(luckyNumber);
-  $(".crystalOne").click(function() {
-    myNumber += crystalOne;
-    $("#myNumber").text(myNumber).done()
-    handleLoss();
-    handleWin();
-  });
-  $(".crystalTwo").click(function() {
-    myNumber += crystalTwo;
-    $("#myNumber").text(myNumber);
-    handleLoss();
-    handleWin();
-  });
-  $(".crystalThree").click(function() {
-    myNumber += crystalThree;
-    $("#myNumber").text(myNumber);
-    handleLoss();
-    handleWin();
-  });
-  $(".crystalFour").click(function() {
-    myNumber += crystalFour;
-    $("#myNumber").text(myNumber);
-    handleLoss();
-    handleWin();
-  });
+  $("#losses").text("Losses: " + losses);
+  $("#wins").text("Wins: " + wins);
+  $("#myNumber").text(myNumber);
+  $("#startOver").prop("disabled", true);
+}
+
+function onCrystalClicked(crystalValue) {
+  myNumber += crystalValue;
+  $("#myNumber").text(myNumber);
+  handleLoss();
+  handleWin();
 }
 function getRandomNumberBeetween(min, max) {
   return Math.floor(Math.random() * Math.floor(max - min) + min);
@@ -54,19 +57,17 @@ function getLuckyNumber() {
 function getCrystalValue() {
   return getRandomNumberBeetween(1, 12);
 }
-
-// function didLose() {
-//     return myNumber > luckyNumber;
-// }
-
 function handleLoss() {
   if (myNumber > luckyNumber) {
-    alert("Game Over!!!");
-  }
-}   
-function handleWin() {
-  if (myNumber == luckyNumber) {
-    alert("Yay! you matched the winning number");
+    losses++;
+    alert("You lost! Better luck next time!");
+    $("#startOver").prop("disabled", false);
   }
 }
-      
+function handleWin() {
+  if (myNumber == luckyNumber) {
+    wins++;
+    alert("Yay! you matched the winning number!");
+    $("#startOver").prop("disabled", false);
+  }
+}
