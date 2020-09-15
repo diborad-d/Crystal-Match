@@ -35,10 +35,10 @@ function setup() {
   crystalFour = getCrystalValue();
   luckyNumber = getLuckyNumber();
   myNumber = 0;
-  $("#luckyNumber").text(luckyNumber);
+  $("#luckyNumber").text("Lucky Number: " + luckyNumber);
   $("#losses").text("Losses: " + losses);
   $("#wins").text("Wins: " + wins);
-  $("#myNumber").text(myNumber);
+  $("#myNumber").text("Score: " + myNumber);
   $("#startOver").prop("disabled", true);
 }
 function onCrystalClicked(crystalValue) {
