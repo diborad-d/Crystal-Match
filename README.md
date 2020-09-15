@@ -5,8 +5,11 @@ CrystalsCollector Game
 live site : https://stoic-almeida-c6dc45.netlify.app/
 
 This game was made using
+
 [x] (vanilla) Javascript
+
 [x] Jquery
+
 [x] css
 
 ## Game purpose
