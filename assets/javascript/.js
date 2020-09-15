@@ -7,8 +7,8 @@ let losses = 0;
 let wins = 0;
 let score = 0;
 
-window.onload = function() {
-//   setup();
+$(function) {
+  setup();
     randomNumber();
 };
 function randomNumber(){
